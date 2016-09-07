@@ -1,9 +1,14 @@
-package com.springstudy.simplespring;
+package me.qiancheng.simple.springframework.beans.factory;
 
+import me.qiancheng.simple.springframework.beans.PropertyValues;
+
+/**
+ * @author qian.cheng
+ */
 public class BeanDefinition {
 	private Class beanClass;
 	private String beanClassName;
-	private PropertyValues propertyValues; 
+	private PropertyValues propertyValues;
 	
 	public Class getBeanClass() {
 		return beanClass;
@@ -30,4 +35,5 @@ public class BeanDefinition {
 	public void setPropertyValues(PropertyValues pvs) {
 		this.propertyValues = pvs;
 	}
+
 }

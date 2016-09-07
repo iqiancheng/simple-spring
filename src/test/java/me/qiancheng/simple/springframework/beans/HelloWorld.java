@@ -1,5 +1,8 @@
-package com.springstudy.simplespring;
+package me.qiancheng.simple.springframework.beans;
 
+/**
+ * @author qian.cheng
+ */
 public class HelloWorld {
 	private String msg = "Hello World!";
 	

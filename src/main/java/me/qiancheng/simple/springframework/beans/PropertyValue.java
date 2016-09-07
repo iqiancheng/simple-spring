@@ -1,5 +1,8 @@
-package com.springstudy.simplespring;
+package me.qiancheng.simple.springframework.beans;
 
+/**
+ * @author qian.cheng
+ */
 public class PropertyValue {
 	private final String name;
 	private final Object value;

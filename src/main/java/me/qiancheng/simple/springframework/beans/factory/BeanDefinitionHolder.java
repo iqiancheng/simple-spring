@@ -1,5 +1,8 @@
-package com.springstudy.simplespring;
+package me.qiancheng.simple.springframework.beans.factory;
 
+/**
+ * @author qian.cheng
+ */
 public class BeanDefinitionHolder {
 	private final BeanDefinition beanDefinition;
 	private final String beanName;

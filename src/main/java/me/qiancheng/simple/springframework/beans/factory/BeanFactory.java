@@ -1,9 +1,17 @@
-package com.springstudy.simplespring;
+package me.qiancheng.simple.springframework.beans.factory;
+
+import com.sun.tools.javac.util.Assert;
+import me.qiancheng.simple.springframework.beans.PropertyValue;
+import me.qiancheng.simple.springframework.beans.PropertyValues;
+import me.qiancheng.simple.springframework.beans.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * @author qian.cheng
+ */
 public class BeanFactory {
 	// 用于存储bean的单例实体
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(64);
@@ -22,7 +30,6 @@ public class BeanFactory {
 			try {
 				bean = doCreateBean(beanName, beanDefinitionMap.get(beanName));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			singletonObjects.put(beanName, bean);
@@ -50,9 +57,12 @@ public class BeanFactory {
 		PropertyValues pvs = beanDefinition.getPropertyValues();
 		if(pvs != null) {
 			for(PropertyValue pv : pvs.getPropertyValueList()) {
-					Field field = bean.getClass().getDeclaredField(pv.getName());
-					field.setAccessible(true);
-					field.set(bean, pv.getValue());
+				ReflectionUtils.setFieldValue(bean.getClass().getDeclaredField(pv.getName()),pv.getName(),pv.getValue());
+				/*
+				Field field = bean.getClass().getDeclaredField(pv.getName());
+				field.setAccessible(true);
+				field.set(bean, pv.getValue());
+				*/
 			}
 		}
 	}
